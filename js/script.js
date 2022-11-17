@@ -14,6 +14,12 @@ const secondsDisplay = document.querySelector('.seconds');
 let minutes = Number(minutesDisplay.textContent)
 let timerTimeOut
 
+const switchTheme = document.getElementById('switch-shadow')
+
+switchTheme.addEventListener('change', () => {
+  document.body.classList.toggle('dark')
+})
+
 // ----- AUDIO -----
 const forestAudio = new Audio('/assets/sounds/Floresta.wav')
 const rainingAudio = new Audio('/assets/sounds/Chuva.wav')

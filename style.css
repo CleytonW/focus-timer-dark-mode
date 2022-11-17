@@ -6,17 +6,30 @@
 
 :root {
   font-size: 62.5%;
+}
+
+.light-theme {
+  --theme: hsla(0, 0%, 100%, 1);
 
   --primary-color: hsl(240, 6%, 21%);
-  --bg-sound: hsl(240, 9%, 89%);
+  --bg-card-sound: hsl(240, 9%, 89%);
   --bg-sound-select: hsl(194, 97%, 31%);
-  
+}
+
+.dark-theme {
+  --theme: hsla(240, 5%, 7%, 1);
+
+  --primary-color: hsla(0, 0%, 100%, 1);
+  --bg-card-sound: hsla(240, 6%, 17%, 1);
+  --bg-sound-select: hsl(194, 97%, 31%);
+  --bg-buttons-icon-dark: hsla(240, 7%, 78%, 1);
 }
 
 body {
   font-family: 'Robo', sans-serif;
 
   color: var(--primary-color);
+  background: var(--theme);
 
   display: flex; 
   align-items: center;
@@ -70,9 +83,9 @@ button {
   gap: 3.2rem;
 }
 
-.card  {
+.card {
 
-  background-color: var(--bg-sound);
+  background-color: var(--bg-card-sound);
 
   border-radius: 2.4rem;
   max-width: 13rem;
@@ -82,17 +95,23 @@ button {
 }
 
 button.active {
-  background-color:var(--bg-sound-select);
+  background-color: var(--bg-sound-select);
 }
 
 .active path {
-  fill: var(--bg-sound);
+  fill: var(--bg-card-sound);
 }
 
 .hide {
   display: none;
 }
 
+
+/* -------dark--------- */
+
+.dark-theme button svg path {
+  fill: var(--bg-buttons-icon-dark);
+}
 
 @media (max-width: 800px) {
   main {
