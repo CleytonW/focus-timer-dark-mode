@@ -7,7 +7,6 @@ const buttonForest = document.querySelector('.forest')
 const buttonRain = document.querySelector('.rain')
 const buttonCoffeeShop = document.querySelector('.coffeeShop')
 const buttonFirePlace = document.querySelector('.firePlace')
-// const musicActivator = document.querySelectorAll('.card');
 
 const minutesDisplay = document.querySelector('.minutes');
 const secondsDisplay = document.querySelector('.seconds');
@@ -15,11 +14,23 @@ let minutes = Number(minutesDisplay.textContent)
 let timerTimeOut
 
 const switchTheme = document.getElementById('switch-shadow')
+const sunBotton = document.querySelector('.sun-icon')
+const moonBotton = document.querySelector('.moon-icon')
+
 
 switchTheme.addEventListener('change', () => {
   document.body.classList.toggle('dark')
 })
 
+sunBotton.addEventListener('click', () => {
+  sunBotton.classList.add('hide')
+  moonBotton.classList.remove('hide')
+})
+
+moonBotton.addEventListener('click', () => {
+  sunBotton.classList.remove('hide')
+  moonBotton.classList.add('hide')
+})
 // ----- AUDIO -----
 const forestAudio = new Audio('/assets/sounds/Floresta.wav')
 const rainingAudio = new Audio('/assets/sounds/Chuva.wav')
