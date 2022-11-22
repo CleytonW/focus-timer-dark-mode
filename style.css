@@ -55,7 +55,7 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 13rem auto;
+  margin: 9rem auto;
 }
 
 .counter {
