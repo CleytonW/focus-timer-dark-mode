@@ -10,13 +10,37 @@ const buttonFirePlace = document.querySelector('.firePlace')
 
 const minutesDisplay = document.querySelector('.minutes');
 const secondsDisplay = document.querySelector('.seconds');
-let minutes = Number(minutesDisplay.textContent)
-let timerTimeOut
+let minutes = Number(minutesDisplay.textContent);
+let timerTimeOut;
+let clique;
 
 const switchTheme = document.getElementById('switch-shadow')
 const sunBotton = document.querySelector('.sun-icon')
 const moonBotton = document.querySelector('.moon-icon')
 
+const forestVolume = document.querySelector('.volumeForest')
+const rainVolume = document.querySelector('.volumeRain')
+const coffeeShopVolume = document.querySelector('.volumeCoffeShop')
+const firePlaceVolume = document.querySelector('.volumeFirePlace')
+
+
+
+
+forestVolume.addEventListener('input', () => {
+  forestAudio.volume = forestVolume.value
+})
+
+rainVolume.addEventListener('input', () => {
+  rainingAudio.volume = rainVolume.value
+})
+
+coffeeShopVolume.addEventListener('input', () => {
+  coffeeShopAudio.volume = coffeeShopVolume.value
+})
+
+firePlaceVolume.addEventListener('input', () => {
+  firePlaceAudio.volume = firePlaceVolume.value
+})
 
 switchTheme.addEventListener('change', () => {
   document.body.classList.toggle('dark')
@@ -31,6 +55,7 @@ moonBotton.addEventListener('click', () => {
   sunBotton.classList.remove('hide')
   moonBotton.classList.add('hide')
 })
+
 // ----- AUDIO -----
 const forestAudio = new Audio('/assets/sounds/Floresta.wav')
 const rainingAudio = new Audio('/assets/sounds/Chuva.wav')
@@ -43,7 +68,6 @@ forestAudio.loop = true
 rainingAudio.loop = true
 coffeeShopAudio.loop = true
 firePlaceAudio.loop = true
-
 
 // ----- FUNÇÕES -----
 let actualAudio
@@ -123,16 +147,16 @@ function countdown () {
 // ----- BUTTÕES -----
 
 buttonPlay.addEventListener('click', () => {
-  buttonPlay.classList.add('hide');
-  buttonPause.classList.remove('hide');
+  buttonPlay.classList.toggle('hide');
+  // buttonPause.classList.remove('hide');
 
   countdown();
   pressButton()
 })
 
 buttonPause.addEventListener('click', () => {
-  buttonPlay.classList.remove('hide');
-  buttonPause.classList.add('hide');
+  buttonPlay.classList.toggle('hide');
+  // buttonPause.classList.add('hide');
 
   clearTimeout(timerTimeOut);
   resetControls();
@@ -140,8 +164,8 @@ buttonPause.addEventListener('click', () => {
 })
 
 buttonStop.addEventListener('click', () => {
-  buttonPlay.classList.remove('hide');
-  buttonPause.classList.add('hide');
+  buttonPlay.classList.toggle('hide');
+  // buttonPause.classList.add('hide');
 
   resetControls()
   resetTimer()
@@ -158,7 +182,7 @@ buttonRemoveMinutes.addEventListener('click', () => {
   pressButton()
 })
 
-buttonForest.addEventListener('click', function () {
+buttonForest.addEventListener('click', () => {
   buttonForest.classList.toggle('active')
   buttonRain.classList.remove('active')
   buttonCoffeeShop.classList.remove('active')
@@ -173,9 +197,10 @@ buttonForest.addEventListener('click', function () {
 
   forestAudio.play()
   actualAudio = forestAudio
+
 })
 
-buttonRain.addEventListener('click', function () {
+buttonRain.addEventListener('click', () => {
   buttonRain.classList.toggle('active')
   buttonForest.classList.remove('active')
   buttonCoffeeShop.classList.remove('active')
@@ -192,7 +217,7 @@ buttonRain.addEventListener('click', function () {
   actualAudio = rainingAudio
 })
 
-buttonCoffeeShop.addEventListener('click', function () {
+buttonCoffeeShop.addEventListener('click', () => {
   buttonCoffeeShop.classList.toggle('active')
   buttonRain.classList.remove('active')
   buttonForest.classList.remove('active')
@@ -209,7 +234,7 @@ buttonCoffeeShop.addEventListener('click', function () {
   actualAudio = coffeeShopAudio
 })
 
-buttonFirePlace.addEventListener('click', function () {
+buttonFirePlace.addEventListener('click', () => {
   buttonFirePlace.classList.toggle('active')
   buttonRain.classList.remove('active')
   buttonCoffeeShop.classList.remove('active')
