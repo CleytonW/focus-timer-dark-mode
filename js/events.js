@@ -4,10 +4,10 @@ import {
   buttonStop,
   buttonAddMinutes,
   buttonRemoveMinutes,
-  buttonForest,
-  buttonRain,
-  buttonCoffeeShop,
-  buttonFirePlace,
+  cardForest,
+  cardRain,
+  cardCoffeeShop,
+  cardFirePlace,
   selectedForest,
   selectedRain,
   selectedCoffeeShop,
@@ -53,11 +53,11 @@ export default function Events({ timer, controls, sounds }) {
 
   selectedForest.addEventListener('click', () => {
     selectedForest.classList.toggle('active')
-    sounds.audioPlay(sounds.forestAudio, buttonForest)
+    sounds.audioPlay(sounds.forestAudio, cardForest)
     forest()
 
     
-    selectedForest.className === 'Forest active' ? buttonForest.classList.add('active') : buttonForest.classList.remove('active')
+    selectedForest.className === 'Forest active' ? cardForest.classList.add('active') : cardForest.classList.remove('active')
   })
 
   forestVolume.addEventListener('input', () => {
@@ -66,10 +66,10 @@ export default function Events({ timer, controls, sounds }) {
 
   selectedRain.addEventListener('click', () => {
     selectedRain.classList.toggle('active')
-    sounds.audioPlay(sounds.rainingAudio, buttonRain)
+    sounds.audioPlay(sounds.rainingAudio, cardRain)
     rain()
 
-    selectedRain.className === 'Rain active' ? buttonRain.classList.add('active') : buttonRain.classList.remove('active')
+    selectedRain.className === 'Rain active' ? cardRain.classList.add('active') : cardRain.classList.remove('active')
   })
 
   rainVolume.addEventListener('input', () => {
@@ -78,10 +78,10 @@ export default function Events({ timer, controls, sounds }) {
 
   selectedCoffeeShop.addEventListener('click', () => {
     selectedCoffeeShop.classList.toggle('active')
-    sounds.audioPlay(sounds.coffeeShopAudio, buttonCoffeeShop)
+    sounds.audioPlay(sounds.coffeeShopAudio, cardCoffeeShop)
     coffeeShop()
     
-    selectedCoffeeShop.className === 'CoffeeShop active' ? buttonCoffeeShop.classList.add('active') : buttonCoffeeShop.classList.remove('active')
+    selectedCoffeeShop.className === 'CoffeeShop active' ? cardCoffeeShop.classList.add('active') : cardCoffeeShop.classList.remove('active')
   })
 
   coffeeShopVolume.addEventListener('input', () => {
@@ -90,10 +90,9 @@ export default function Events({ timer, controls, sounds }) {
 
   selectedFirePlace.addEventListener('click', () => {
     selectedFirePlace.classList.toggle('active')
-    sounds.audioPlay(sounds.firePlaceAudio, buttonFirePlace)
+    sounds.audioPlay(sounds.firePlaceAudio, cardFirePlace)
     firePlace()
-    
-    selectedFirePlace.className === 'FirePlace active' ? buttonFirePlace.classList.add('active') : buttonFirePlace.classList.remove('active')
+    selectedFirePlace.className === 'FirePlace active' ? cardFirePlace.classList.add('active') : cardFirePlace.classList.remove('active')
   })
 
   firePlaceVolume.addEventListener('input', () => {
@@ -115,36 +114,36 @@ export default function Events({ timer, controls, sounds }) {
   })
 
   function forest() {
-    buttonRain.classList.remove('active')
-    buttonCoffeeShop.classList.remove('active')
-    buttonFirePlace.classList.remove('active')
+    cardRain.classList.remove('active')
+    cardCoffeeShop.classList.remove('active')
+    cardFirePlace.classList.remove('active')
     selectedRain.classList.remove('active')
     selectedCoffeeShop.classList.remove('active')
     selectedFirePlace.classList.remove('active')
   }
 
   function rain() {
-    buttonForest.classList.remove('active')
-    buttonCoffeeShop.classList.remove('active')
-    buttonFirePlace.classList.remove('active')
+    cardForest.classList.remove('active')
+    cardCoffeeShop.classList.remove('active')
+    cardFirePlace.classList.remove('active')
     selectedForest.classList.remove('active')
     selectedCoffeeShop.classList.remove('active')
     selectedFirePlace.classList.remove('active')
   }
 
   function coffeeShop() {
-    buttonRain.classList.remove('active')
-    buttonForest.classList.remove('active')
-    buttonFirePlace.classList.remove('active')
+    cardRain.classList.remove('active')
+    cardForest.classList.remove('active')
+    cardFirePlace.classList.remove('active')
     selectedRain.classList.remove('active')
     selectedForest.classList.remove('active')
     selectedFirePlace.classList.remove('active')
   }
 
   function firePlace() {
-    buttonRain.classList.remove('active')
-    buttonCoffeeShop.classList.remove('active')
-    buttonForest.classList.remove('active')
+    cardRain.classList.remove('active')
+    cardCoffeeShop.classList.remove('active')
+    cardForest.classList.remove('active')
     selectedRain.classList.remove('active')
     selectedCoffeeShop.classList.remove('active')
     selectedForest.classList.remove('active')

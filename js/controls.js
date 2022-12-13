@@ -18,9 +18,14 @@ export default function Controls({
     buttonPause.classList.add('hide');
   }
 
+  function toggle(card){
+    card.classList.toggle('active')
+  }
+
   return {
     play,
     pause,
     reset,
+    toggle
   }
 }
